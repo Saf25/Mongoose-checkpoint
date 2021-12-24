@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const People = require("../model/personSchema");
+const Person = require("../model/personSchema");
 
 // Create and save new person
 router.post("/newPerson", (req, res) => {
   let newPerson = new Person(req.body);
-  newPeople.save((err, msg) => {
+  newPerson.save((err, msg) => {
     if (err) throw err;
     else res.json({ msg: "new person added" });
   });
