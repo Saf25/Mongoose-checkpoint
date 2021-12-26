@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 app.use(express.json());
-require("dotenv").config();
+require("dotenv").config({ path: "./config/.env" });;
 
 mongoose.connect(
   process.env.MONGODB_URI,
@@ -17,7 +17,7 @@ mongoose.connect(
 );
 app.use("/people", require("./routes/personRoutes"));
 
-app.listen(3000, (err) => {
+app.listen(PORT, (err) => {
   if (err) console.log(err);
-  else console.log("Server is running on port 3000");
+  else console.log(`Server is running on port ${process.env.PORT}`);
 });
